@@ -6,6 +6,30 @@
   background-color: #fafbfd;
   box-shadow: 1px 2px 5px 3px rgba(0,0,0,.1);
   padding: 4px 2px;
+  transition: 0.3s;
+}
+
+.ToDoListItem .hoverText {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.ToDoListItem:hover .hoverText {
+  visibility: visible;
+}
+.ToDoListItem:hover {
+  border-color: green;
+  background-color: #3e8e41;
+  color: white;
 }
 
 .ToDoListItem-title {
