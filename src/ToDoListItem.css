@@ -8,6 +8,10 @@
   padding: 4px 2px;
 }
 
+.ToDoListItem:hover {
+  border-color: red;
+}
+
 .ToDoListItem-title {
   font-size: 18px;
   margin: 0 8px 4px;
