@@ -6,7 +6,12 @@
   background-color: #fafbfd;
   box-shadow: 1px 2px 5px 3px rgba(0,0,0,.1);
   padding: 4px 2px;
+  cursor:pointer;
 }
+
+.ToDoListItem:hover {
+  background-color: #989;
+}  
 
 .ToDoListItem-title {
   font-size: 18px;
