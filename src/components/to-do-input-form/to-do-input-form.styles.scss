@@ -1,0 +1,41 @@
+.to-do-input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .title {
+    height: 20px;
+    padding: 5px;
+    margin: 10px;
+    width: 288px;
+  }
+
+  .description {
+    font-family: Arial;
+    height: 20px;
+    padding: 5px;
+    margin: 10px;
+    width: 288px;
+    height: 50px;
+    resize: vertical;
+    overflow: auto;
+  }
+
+  .button {
+    width: 302px;
+    line-height: 30px;
+    font-size: 15px;
+    background-color: lightskyblue;
+    color: white;
+    font-weight: bolder;
+    border: none;
+    cursor: pointer;
+    justify-content: center;
+
+    &:hover {
+      background-color: white;
+      color: lightskyblue;
+      border: 1px solid lightskyblue;
+    }
+  }
+}
