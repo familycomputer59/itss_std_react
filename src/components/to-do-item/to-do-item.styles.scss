@@ -1,0 +1,50 @@
+.item {
+  border: 1px solid aquamarine;
+  margin: 12px;
+  border-radius: 4px;
+  width: 300px;
+  background-color: #fafbfd;
+  box-shadow: 1px 2px 5px 3px rgba(0, 0, 0, 0.1);
+  padding: 4px 2px;
+
+  .title {
+    font-size: 18px;
+    margin: 0 8px 4px;
+    border-bottom: 1px solid #333;
+    text-align: left;
+    padding: 4px 8px;
+  }
+
+  .description {
+    word-wrap: break-word;
+    padding: 8px;
+  }
+
+  .remove-button {
+    padding-right: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-end;
+
+    .tooltip-text {
+      visibility: hidden;
+      margin: 15px 64px;
+      width: 60px;
+      font-size: small;
+      font-weight: bolder;
+      background-color: darkgray;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+
+      /* Position the tooltip */
+      position: absolute;
+      z-index: 1;
+    }
+
+    &:hover .tooltip-text {
+      visibility: visible;
+    }
+  }
+}
