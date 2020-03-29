@@ -34,31 +34,42 @@ class App extends Component {
     this.setState({item: this.state.item});
   }
   
-  handleAddList() {
-    this.state.toDoList.push(this.state.item);
+  handleAddItem() {
+    //this.state.toDoList.push(this.state.item);
+    this.setState({toDoList: [...this.state.toDoList, this.state.item]}, () => {
+      localStorage.setItem("toDoList", JSON.stringify(this.state.toDoList))
+    });
+  }
+  
+  handleDeleteItem(index) {
+    this.state.toDoList.splice(index, 1);
     this.setState({toDoList: this.state.toDoList});
   }
   
   handleSubmit(e) {
-    this.handleAddList();
+    this.handleAddItem();
     e.preventDefault();
-    this
+    this.setState({
+        item: {
+            title: '',
+            description: ''
+        }
+    })
   }
     
   render() {
       
-    function printList(toDoList) {
-        let items = toDoList.map((item,index) => {
-            return (
-                <ToDoListItem
-                  key = {index}
-                  title = {item.title}
-                  description = {item.description}
-                />
-              )
-        });
-        return items;
-    }
+    let items = this.state.toDoList.map((item,index) => {
+        return (
+            <ToDoListItem
+                key = {index}
+                title = {item.title}
+                description = {item.description}
+                handleDelete = {()=>this.handleDeleteItem(index)}
+            />
+        )
+    });
+        
       
     return (
       <div className="App">
@@ -68,23 +79,27 @@ class App extends Component {
             <input 
               id="title"    
               type="text"
+              value={this.state.item.title}
               onChange={(e)=>this.handleTitleEdit(e)}
               placeholder="Title"
+              required
             />
             <textarea
               id="des"
-              type="text"
+              value={this.state.item.description}
               onChange={(e)=>this.handleDesEdit(e)}
               placeholder="Description"
             />
-            <button type="submit">
+            <button type="submit"
+              //onClick={(e)=>this.handleSubmit(e)}
+            >
                 登録
             </button>
           </form>
         </div>
         
         <div>
-          {printList(this.state.toDoList)}
+          {items}
         </div>
         
       </div>

@@ -6,11 +6,14 @@ class ToDoListItem extends Component {
         
     const{
         title,
-        description
+        description,
+        handleDelete,
     } = this.props ;
     
     return (
-      <div className="ToDoListItem">
+      <div className="ToDoListItem"
+        onClick={handleDelete}
+      >
         <div className="ToDoListItem-title">{title}</div>
         <div className="ToDoListItem-description">{description}</div>
       </div>
