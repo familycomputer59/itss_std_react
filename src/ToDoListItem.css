@@ -20,3 +20,11 @@
   word-wrap: break-word;
   padding: 8px;
 }
+
+.App-form input[type=text]{
+    margin-bottom: 5px;
+}
+
+.App-form input[type=submit]{
+    margin-top: 10px;
+}
