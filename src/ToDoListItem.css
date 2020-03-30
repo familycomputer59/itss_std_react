@@ -19,4 +19,5 @@
 .ToDoListItem-description {
   word-wrap: break-word;
   padding: 8px;
+  margin: 0 8px 4px;
 }
