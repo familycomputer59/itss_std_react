@@ -20,9 +20,14 @@ class App extends Component {
     }
 
     this.handleAddList = this.handleAddList.bind(this);
+    this.handleDeleteList = this.handleDeleteList.bind(this);
   }
   handleAddList(index) {
     this.state.todos.push(index)
+    this.setState({ todos: this.state.todos })
+  }
+  handleDeleteList(index){
+    this.state.todos.splice(index, 1)
     this.setState({ todos: this.state.todos })
   }
   render() {
@@ -36,7 +41,7 @@ class App extends Component {
                 key={i} 
                 title={todo.title}
                 description={todo.description}
-               
+                onClick={() => this.handleDeleteList(i)}
               />
             ))
           }
