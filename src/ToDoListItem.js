@@ -9,8 +9,8 @@ class ToDoListItem extends Component {
       } = this.props; 
     return (
       <div className="ToDoListItem">
-        <div className="ToDoListItem-title">{this.props.title}</div>
-        <div className="ToDoListItem-description">{this.props.description}</div>
+        <div className="ToDoListItem-title">{title}</div>
+        <div className="ToDoListItem-description">{description}</div>
       </div>
     );
   }

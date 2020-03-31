@@ -4,26 +4,32 @@ import './App.css';
 
 class App extends Component {
     constructor(props) {
-    super(props);
- 
-    this.state = {
-      title: "",
-      description: "",
-      toDoList: []
-    };
-  }
-  handleChange(event) {
-    this.setState({title: event.target.title,description:event.target.description })
+        super(props);
+     
+        this.state = {
+          title: "",
+          description: "",
+          toDoList: []
+        };
+        this.handleChangeTitle = this.handleChangeTitle.bind(this)
+        this.handleChangeDes = this.handleChangeDes.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+     }
+  handleChangeTitle(event) {
+    this.setState({title: event.target.title})
   }
   
+  handleChangeDes(event) {
+    this.setState({description: event.target.description})
+  }
   handleSubmit(event) {
     let toDoList = this.state.toDoList;
-          toDoList.push({
-            title: this.state.title,
-            description: this.state.description
-          });
-          this.setState({toDoList: toDoList, title: "", description: ""});
-          event.preventDefault();
+    toDoList.push({
+        title: this.state.title,
+        description: this.state.description
+    });
+    this.setState({toDoList: toDoList, title: "", description: ""});
+    event.preventDefault();
   }
   
   render() {
@@ -31,16 +37,17 @@ class App extends Component {
       <div className="App">
         <form className="App-form" onSubmit={this.handleSubmit}>
             <input placeholder="Title"value={this.state.title}
-            onChange={this.handleChange}/>
+            onChange={this.handleChangeTitle}/>
             <textarea placeholder="Description" value={this.state.description}
-            onChange={this.handleChange}></textarea>
+            onChange={this.handleChangeDes}></textarea>
             <div><button>登録</button></div>
         </form>
         <div>
-          <ToDoListItem
-            title="テスト"
-            description="実験です"
-          />
+            {
+            this.state.toDoList.map((item => (
+                <ToDoListItem />
+            )
+          }
         </div>
       </div>
     );
