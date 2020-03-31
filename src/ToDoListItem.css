@@ -1,6 +1,6 @@
 .ToDoListItem {
   border: 1px solid aquamarine;
-  margin: 12px;
+  margin: 20px;
   border-radius: 4px;
   width: 300px;
   background-color: #fafbfd;
@@ -19,4 +19,27 @@
 .ToDoListItem-description {
   word-wrap: break-word;
   padding: 8px;
+}
+
+.ToDoList{
+  border: 1px solid black;
+  margin: 12px;
+  border-radius: 4px;
+  width: 350px;
+  background-color: #bfd0f2;
+  box-shadow: 1px 2px 5px 3px rgba(0,0,0,.1);
+  padding: 4px 2px;
+}
+
+.ToDoList-add{
+  width: 300px;
+  margin: auto;
+}
+
+.ToDoList-add .form-control{
+  width: 100%;
+  margin-bottom: 5px; 
+}
+.ToDoList-add #submit.form-control{
+  margin-top: 10px;
 }
