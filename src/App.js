@@ -35,7 +35,6 @@ class App extends Component {
   }
   
   handleAddItem() {
-    //this.state.toDoList.push(this.state.item);
     this.setState({toDoList: [...this.state.toDoList, this.state.item]}, () => {
       localStorage.setItem("toDoList", JSON.stringify(this.state.toDoList))
     });
@@ -81,14 +80,14 @@ class App extends Component {
               type="text"
               value={this.state.item.title}
               onChange={(e)=>this.handleTitleEdit(e)}
-              placeholder="Title"
+              placeholder="タイトル"
               required
             />
             <textarea
               id="des"
               value={this.state.item.description}
               onChange={(e)=>this.handleDesEdit(e)}
-              placeholder="Description"
+              placeholder="デスクリプション"
             />
             <button type="submit"
               //onClick={(e)=>this.handleSubmit(e)}
