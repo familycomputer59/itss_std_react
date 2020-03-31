@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import ToDoListItem from "./ToDoListItem.js"
-import './App.css';
+import TodoList from './components/TodoList'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <div>
-          <ToDoListItem
-          />
-        </div>
+      <div className="d-flex">
+          <TodoList />
       </div>
     );
   }
