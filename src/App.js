@@ -16,11 +16,11 @@ class App extends Component {
         this.handleSubmit = this.handleSubmit.bind(this)
      }
   handleChangeTitle(event) {
-    this.setState({title: event.target.title})
+    this.setState({title: event.target.value})
   }
   
   handleChangeDes(event) {
-    this.setState({description: event.target.description})
+    this.setState({description: event.target.value})
   }
   handleSubmit(event) {
     let toDoList = this.state.toDoList;
@@ -43,10 +43,13 @@ class App extends Component {
             <div><button>登録</button></div>
         </form>
         <div>
-            {
-            this.state.toDoList.map((item => (
-                <ToDoListItem />
-            )
+         {
+            this.state.toDoList.map(item => {
+              return <ToDoListItem title={item.title} description={item.description} onItemClick={() => {
+                let toDoList = this.state.toDoList;
+                this.setState({toDoList: toDoList});
+              }}/>
+            })
           }
         </div>
       </div>
