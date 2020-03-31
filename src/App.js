@@ -43,7 +43,7 @@ class App extends Component {
     this.setState({toDoList: this.state.toDoList});
   }
   
-  handleSubmit(e) {
+  onSubmit(e) {
     this.handleAddItem();
     e.preventDefault();
     this.setState({
@@ -88,7 +88,7 @@ class App extends Component {
               placeholder="Description"
             />
             <button type="submit"
-              onClick={(e)=>this.handleSubmit(e)}
+              onClick={(e)=>this.onSubmit(e)}
             >
              Add
             </button>
