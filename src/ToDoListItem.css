@@ -20,3 +20,7 @@
   word-wrap: break-word;
   padding: 8px;
 }
+
+.ToDoListItem:hover {
+  background-color: pink;
+}
