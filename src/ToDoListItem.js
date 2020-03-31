@@ -3,12 +3,17 @@ import './ToDoListItem.css';
 
 class ToDoListItem extends Component {
   render() {
-    return (
+    const { itemList } = this.props
+    return itemList.map(item => (
       <div className="ToDoListItem">
-        <div className="ToDoListItem-title"></div>
-        <div className="ToDoListItem-description"></div>
+        <div className="ToDoListItem-title">
+          {item.title}
+        </div>
+        <div className="ToDoListItem-description">
+          {item.description}
+        </div>
       </div>
-    );
+    ))
   }
 }
 
