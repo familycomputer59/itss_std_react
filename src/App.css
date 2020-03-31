@@ -21,6 +21,10 @@
   flex-direction: column;
   margin-bottom: 10px;
   height: 30px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #00CD00;
+  border-radius: 4px;
 }
 
 .App-form > :nth-child(1) > * {
@@ -52,7 +56,13 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 60px;
+  height: 100px;
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #00CD00;
+  border-radius: 4px;
 }
 
 .App-form button {
