@@ -19,13 +19,20 @@ class App extends Component {
     })
   }
 
+  deleteItem = (index) => {
+    const itemList = this.state.itemList.filter((item, idx) => index !== idx)
+    this.setState({
+      itemList
+    })
+  }
+
   render() {
     const { itemList } = this.state
 
     return (
       <div className="App">
         <div>
-          <ToDoListItem itemList={itemList} />
+          <ToDoListItem itemList={itemList} deleteItem={this.deleteItem} />
           <ToDoForm addItem={this.addItem} />
         </div>
       </div>
