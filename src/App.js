@@ -13,7 +13,7 @@ class App extends Component {
     };
   }
   handleChange(event) {
-    this.setState({ title: event.target.title })
+    this.setState({title: event.target.title,description:event.target.description })
   }
   
   handleSubmit(event) {
