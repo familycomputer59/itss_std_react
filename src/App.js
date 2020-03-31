@@ -17,10 +17,20 @@ class App extends Component {
     this.setState({ title: event.target.title })
   }
   
+  handleSubmit(event) {
+    let toDoList = this.state.toDoList;
+          toDoList.push({
+            title: this.state.title,
+            description: this.state.description
+          });
+          this.setState({toDoList: toDoList, title: "", description: ""});
+          event.preventDefault();
+  }
+  
   render() {
     return (
       <div className="App">
-        <form className="App-form">
+        <form className="App-form" onSubmit={this.handleSubmit}>
             <input placeholder="Title"value={this.state.title}
             onChange={this.handleChange}/>
             <textarea placeholder="Description" value={this.state.description}
