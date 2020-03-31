@@ -3,10 +3,11 @@ import './ToDoListItem.css';
 
 class ToDoListItem extends Component {
   render() {
+          const {title,description} = this.props;
     return (
-      <div className="ToDoListItem">
-        <div className="ToDoListItem-title"></div>
-        <div className="ToDoListItem-description"></div>
+      <div className="ToDoListItem" onClick={this.props.onDelete}>
+        <div className="ToDoListItem-title">{title}</div>
+        <div className="ToDoListItem-description">{description}</div>
       </div>
     );
   }
