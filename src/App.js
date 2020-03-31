@@ -22,6 +22,11 @@ class App extends Component {
           description: '',
       },
     }
+    this.handleTitleEdit = this.handleTitleEdit.bind(this);
+    this.handleDesEdit = this.handleDesEdit.bind(this);
+    this.handleAddItem = this.handleAddItem.bind(this);
+    this.handleDeleteItem = this.handleDeleteItem.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }    
   
   handleTitleEdit(e) {
