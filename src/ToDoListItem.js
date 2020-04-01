@@ -42,25 +42,27 @@ class ToDoListItem extends Component {
   		title: this.title,
   		desc: this.desc
   	 })
-  	console.log(newlist)
+  	// console.log(newlist)
   	this.setState({todolist: newlist})
   	event.preventDefault();
   }
 
-  deleteTodo(id,e) =>{
+  deleteTodo(id,e){
+  	console.log("clicked");
   	let newlist = this.state.todolist;
+  	// console.log(id);
 
-  	newlist = newlist.splice(id,1);
-  	console.log(newlist);
+  	newlist.splice(id,1);
+
   	this.setState({todolist: newlist})
   	e.preventDefault();
-  	
+
   }
 
   displayContent(){
   	let id = this.state.todolist.length 
   	let content = this.state.todolist.map( todo => (
-  			<div class= "ToDoListItem" onclick={(e) => this.deleteTodo(id,e)}>
+  			<div class= "ToDoListItem" onClick={(e) => this.deleteTodo(this.state.todolist.indexOf(todo), e)}>
 	  		  	<div className="ToDoListItem-title">{todo.title}</div>
 	  		  	<div className="ToDoListItem-description">{todo.desc}</div>
   		  	</div>
