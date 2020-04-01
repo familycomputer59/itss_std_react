@@ -1,0 +1,7 @@
+.ToDoList {
+    margin-right: 40px;
+}
+
+.ToDoList > p {
+    text-align: center;
+}
