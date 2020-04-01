@@ -24,11 +24,8 @@ class App extends Component {
 
   submitTodo(event) {
     let todoList = this.state.todoList.filter((item, index, arr) => {
-      if(arr[index].title !== this.state.title) {
-        arr[index].description = this.state.description
-      }
-      return arr[index].title !== this.state.title}
-    )
+      return arr[index].title !== this.state.title
+    })
     this.setState({
       todoList: [...todoList, {title: this.state.title, description: this.state.description}]
     });
