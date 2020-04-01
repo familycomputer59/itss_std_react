@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import './ToDoListItem.css';
 
 class ToDoListItem extends Component {
-  handleDeleteItem = () => {
-    this.props.onToDoDelete();
-  };
   render() {
     if (this.props.list) {
 	    return this.props.list.map((item, index) => (
