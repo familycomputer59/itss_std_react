@@ -8,20 +8,10 @@ class App extends Component {
     super();
     this.state = {
       items: [
-        { title: 'Learn', content: 'Learn English', isDone: true },
-        { title: 'Eat', content: 'Eat banh my', isDone: false },
-        { title: 'Sleep', content: 'Sleep 8 hours', isDone: true }
+        { title: 'ITSS1', description: 'Submit React Todo App'},
+        { title: '日本語8', description: 'Finish task 2'}
       ]
     };
-  }
-
-  onChange(index) {
-    const newItems = this.state.items.slice();
-    newItems[index].isDone = !newItems[index].isDone;
-    this.setState({
-      items: newItems
-    });
-    console.log(this.state.items[index]);
   }
 
   onRemove(index) {
@@ -30,22 +20,26 @@ class App extends Component {
     this.setState({ items: newItems });
   }
 
-  onSubmit() {
-    console.log('hi');
+  onSubmit(title, description) {
+    const newItems = this.state.items.slice();
+    newItems.push({ title, description });
+    this.setState({ items: newItems });
   }
+
   render() {
     return (
       <div className="App">
+        <TodoListInput
+          onSubmit={(title, description) => this.onSubmit(title, description)}
+        />
         <div className="item-group">
           {this.state.items.map((element, index) => (
             <TodoListItem
               key={index}
               item={element}
-              onChange={() => this.onChange(index)}
               onRemove={() => this.onRemove(index)}
             />
           ))}
-          <TodoListInput onSubmit={() => this.onSubmit()} />
         </div>
       </div>
     );
