@@ -1,14 +1,82 @@
-import React, { Component } from 'react';
-import ToDoListItem from "./ToDoListItem.js"
-import './App.css';
+import React from "react";
+import Addtask from "./components/Addtask";
+import Tasklist from "./components/Tasklist";
+import TodoTitle from "./components/TodoTile"
+import "./App.css";
 
-class App extends Component {
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      Task: [
+        {
+          id   :this.createGuid(),
+          title: "寝る",
+          description: "play game before go to bed"
+        },
+        {
+          id    :this.createGuid(),
+          title: "日本語を勉強",
+          description: "漢字を勉強する"
+        },
+        {
+          id   :this.createGuid(),
+          title: "スポーツをする",
+          description: "Cuong さんと遊ぶ"
+        },
+        {
+          id   :this.createGuid(),
+          title: "ごはんを食べる",
+          description: "魚を買う"
+        }
+      ]
+    };
+    
+  }
+  createGuid() {
+  
+    function s4() {
+       return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
+    }
+    return s4() + s4() + s4() + s4(); // Example => 'e014026082e6237b'
+  }
+  callbackHandlerFunction = (data) => {
+    var Task =this.state.Task;
+    data.id = this.createGuid();
+    Task.push(data);
+    this.setState({
+      Task : Task
+    })
+    
+   
+}
+onDelete =(index) =>{
+  var Task = this.state.Task;
+  Task.splice(index,1);
+  this.setState({
+    Task : Task
+  });
+
+}
   render() {
+    var Task = this.state.Task;
     return (
-      <div className="App">
-        <div>
-          <ToDoListItem
-          />
+      <div className="container">
+        <TodoTitle></TodoTitle>
+        <br />
+        <div className="row">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <Addtask handleClickParent={this.callbackHandlerFunction}></Addtask>
+            </div>
+            <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+              <Tasklist 
+              Task={Task}
+              onDelete = {this.onDelete}
+              ></Tasklist>
+            </div>
+            
+          </div>
         </div>
       </div>
     );
