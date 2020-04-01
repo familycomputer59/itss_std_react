@@ -54,7 +54,7 @@
 
 .App-form button {
   border: 1px solid #ccc;
-  background: white;
+  background: pink;
   padding: 4px 8px;
   border-radius: 2px;
   margin-top: 8px;
@@ -63,5 +63,5 @@
 }
 
 .App-form button:hover {
-  box-shadow: 0px 2px 2px 2px rgba(0,0,0,.1);
+  background: green;
 }
