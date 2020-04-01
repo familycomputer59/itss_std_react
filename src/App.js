@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ToDoListItem from "./ToDoListItem.js"
+import ToDoListItem from "./ToDoListItem.js";
+import Form from "./Form.js";
 import './App.css';
 
 class App extends Component {
@@ -11,6 +12,12 @@ class App extends Component {
         description: 'World'
       }]
     }
+  }
+
+  addToTodos = (todo) => {
+    let todos = [...this.state.todos];
+    todos.push(todo);
+    this.setState({ todos });
   }
 
   render() {
@@ -27,6 +34,9 @@ class App extends Component {
               ) :
               <div>ない</div>
           }
+        </div>
+        <div>
+          <Form addToTodos={this.addToTodos} />
         </div>
       </div>
     );
