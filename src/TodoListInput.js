@@ -1,22 +1,56 @@
-import React from 'react';
+import React, {Component} from 'react';
+// import { Input } from 'antd';
+import './TodoListInput.css';
 
-class TodoListInput extends React.Component {
+class TodoListInput extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { title: '', description: '' };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleInputChange(event) {
+    const target = event.target;
+    const name = target.name;
+
+    this.setState({
+      [name]: target.value
+    });
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.onSubmit(this.state.title, this.state.description);
+    this.setState({
+      title: '',
+      description: ''
+    });
+  }
+
   render() {
     return (
-      <div>
-        <input type="text" id="title" name="title" placeholder="Title" />
-        <br />
+      <form onSubmit={this.handleSubmit}>
         <input
           type="text"
-          id="description"
-          name="description"
-          placeholder="Description"
+          name="title"
+          placeholder="Title"
+          value={this.state.title}
+          onChange={this.handleInputChange}
         />
         <br />
-        <button type="button" onClick={this.props.onSubmit}>
+        <textarea
+          name="description"
+          placeholder="Description"
+          value={this.state.description}
+          onChange={this.handleInputChange}
+        />
+        <br />
+        <button id="submitBtn" type="submit">
           Submit
         </button>
-      </div>
+      </form>
     );
   }
 }
