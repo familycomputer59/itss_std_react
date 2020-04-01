@@ -3,10 +3,20 @@ import './ToDoListItem.css';
 
 class ToDoListItem extends Component {
   render() {
+      var items= this.props.items;
     return (
-      <div className="ToDoListItem">
-        <div className="ToDoListItem-title"></div>
-        <div className="ToDoListItem-description"></div>
+      <div>
+        {
+            items.map((content,key)=>{
+                return  (
+                <div  className="ToDoListItem" key = {content.key} onClick = {(e)=>this.props.deleteItem(content.key)}>
+                    <div className="ToDoListItem-title">{content.title}</div>
+                    <div className="ToDoListItem-description">{content.description}</div>
+                </div>
+                )
+            })
+        }
+        
       </div>
     );
   }
