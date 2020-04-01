@@ -27,9 +27,7 @@ class App extends Component {
       return arr[index].title !== this.state.title
     })
     this.setState({
-      todoList: [...todoList, {title: this.state.title, description: this.state.description}]
-    });
-    this.setState({
+      todoList: [...todoList, {title: this.state.title, description: this.state.description}],
       title: "",
       description: ""
     });
