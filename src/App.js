@@ -19,6 +19,8 @@ class App extends Component {
     console.log(count);
     count++;
     this.setState({ todos, count });
+    console.log(todos);
+    console.log(this.state.todos);
   }
 
   removeFromTodos = (id) => {
@@ -26,9 +28,11 @@ class App extends Component {
       let todos = [...this.state.todos];
       let count = this.state.count;
       console.log(id);
-      todos.filter(todo => todo.id !== id);
+      todos = todos.filter(todo => todo.id !== id);
       count--;
       this.setState({ todos, count });
+      console.log(todos);
+      console.log(this.state.todos);
     }
   }
 
@@ -37,7 +41,7 @@ class App extends Component {
       <div className="App">
         <div>
           {
-            this.state.count !== 0 ?
+            this.state.todos[0] ?
               this.state.todos.map((todo) =>
                 <ToDoListItem
                   title={todo.title}
