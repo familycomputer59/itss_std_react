@@ -3,12 +3,38 @@ import ToDoListItem from "./ToDoListItem.js"
 import './App.css';
 
 class App extends Component {
-  render() {
-    return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      toDoLists: []
+    };
+    this.handleDeleteToDo = this.handleDeleteToDo.bind(this);
+  }
+  handleAddToDo = item => {
+    this.state.toDoLists.push(item);
+    this.setState({ toDoLists: this.state.toDoLists });
+  };
+  handleDeleteToDo = index => {
+    this.state.toDoLists.splice(index, 1);
+    this.setState({ toDoLists: this.state.toDoLists });
+  };
+  render() {	  render() {
+    return (	    return (
+      <div>
       <div className="App">
-        <div>
-          <ToDoListItem
-          />
+          <ToDoForm onAddToDo={this.handleAddToDo} />
+          <div>
+            {this.state.toDoLists.map((item, index) => {
+              return (
+                <ToDoListItem
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                  onToDoDelete={() => this.handleDeleteToDo(index)}
+                />
+              );
+            })}
+          </div>
         </div>
       </div>
     );
