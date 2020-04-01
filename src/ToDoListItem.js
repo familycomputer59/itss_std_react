@@ -1,17 +1,28 @@
 import React, { Component } from 'react';
-import './ToDoListItem.css';
+import './TodoListItem.css';
 
-class ToDoListItem extends Component {
+class TodoListItem extends Component {
   render() {
     return (
-      <div className="ToDoListItem">
-          <div className="ToDoListItem-title">{this.props.item.title}</div>
-          <div className="ToDoListItem-description">
-            {this.props.item.content}
+      <div>
+        <div className="ToDoListItem">
+          <div className="ToDoListItem-head">
+            <div className="ToDoListItem-title">{this.props.item.title}</div>
+            <button
+              type="button"
+              className="ToDoListItem-remove"
+              onClick={this.props.onRemove}
+            >
+              X
+            </button>
           </div>
+          <div className="ToDoListItem-description">
+            {this.props.item.description}
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default ToDoListItem;
+export default TodoListItem;
