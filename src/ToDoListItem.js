@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './ToDoListItem.css';
-
+import './App.css';
 class ToDoListItem extends Component {
   render() {
     if (this.props.list) {
