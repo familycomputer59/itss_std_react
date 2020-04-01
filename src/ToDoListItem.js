@@ -6,15 +6,14 @@ class ToDoListItem extends Component {
   constructor(props){
   	super(props);
   	this.state = {todolist : [
-  		{
-  			title : 'finish homework',
-  			desc : 'try your best to finish all homework for next week class'
-  		},
-  		{
-  			title : 'sleep',
-  			desc : 'a growup should sleep 8 hours a day'
-  		}
-
+	  		{
+	  			title : 'finish homework',
+	  			desc : 'try your best to finish all homework for next week class'
+	  		},
+	  		{
+	  			title : 'sleep',
+	  			desc : 'a growup should sleep 8 hours a day'
+	  		}
   		]
   	}
   	var title;
@@ -48,9 +47,20 @@ class ToDoListItem extends Component {
   	event.preventDefault();
   }
 
+  deleteTodo(id,e) =>{
+  	let newlist = this.state.todolist;
+
+  	newlist = newlist.splice(id,1);
+  	console.log(newlist);
+  	this.setState({todolist: newlist})
+  	e.preventDefault();
+  	
+  }
+
   displayContent(){
+  	let id = this.state.todolist.length 
   	let content = this.state.todolist.map( todo => (
-  			<div class= "ToDoListItem">
+  			<div class= "ToDoListItem" onclick={(e) => this.deleteTodo(id,e)}>
 	  		  	<div className="ToDoListItem-title">{todo.title}</div>
 	  		  	<div className="ToDoListItem-description">{todo.desc}</div>
   		  	</div>
