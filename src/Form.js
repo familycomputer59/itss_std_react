@@ -20,10 +20,10 @@ class Form extends Component {
     }
     render() {
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input type="text" name="title" placeholder="title" onChange={this.handleChange} />
-                <input type="text" name="description" placeholder="description" onChange={this.handleChange} />
-                <input type="submit" onpress={this.handleSubmit} value="登録" />
+            <form className="Form" onSubmit={this.handleSubmit}>
+                <input className="FormItem" type="text" name="title" placeholder="title" onChange={this.handleChange} />
+                <textarea className="FormItem" type="text" name="description" placeholder="description" onChange={this.handleChange} />
+                <input className="FormItem" type="submit" onpress={this.handleSubmit} value="登録" />
             </form>
         );
     }
