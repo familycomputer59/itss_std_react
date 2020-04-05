@@ -9,6 +9,7 @@ class ToDoListItem extends Component {
 	      <div className="ToDoListItem-title">{item.title}</div>
 	      <div className="ToDoListItem-description">{item.description}</div>
 	    </div>
+	  )
 	  );
 	  }
 	}
